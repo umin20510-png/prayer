@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>기도제목 나눔 🙏</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F5F0;
+    --surface: #FFFFFF;
+    --border: rgba(0,0,0,0.08);
+    --border-hover: rgba(0,0,0,0.18);
+    --text: #1A1A1A;
+    --text-muted: #888;
+    --accent: #4A3F8F;
+    --accent-light: #EEEDFe;
+    --accent-text: #3C3489;
+    --green: #0F6E56;
+    --green-light: #E1F5EE;
+    --red: #A32D2D;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+
+  body {
+    background: var(--bg);
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 16px 80px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 48px 0 32px;
+  }
+  .header .week-pill {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent-text);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    letter-spacing: 0.03em;
+  }
+  .header h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .header p {
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+  }
+
+  /* Tabs */
+  .tab-wrap {
+    background: rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 4px;
+    display: flex;
+    gap: 3px;
+    margin-bottom: 24px;
+  }
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 9px 0;
+    font-size: 14px;
+    border-radius: 9px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .tab.active {
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .field-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .required { color: var(--accent); margin-left: 2px; }
+
+  input[type="text"], textarea {
+    width: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 11px 14px;
+    resize: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  input[type="text"]::placeholder, textarea::placeholder { color: #bbb; }
+  textarea { height: 100px; line-height: 1.6; }
+
+  /* Categories */
+  .cats { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cat {
+    font-size: 13px;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .cat.active {
+    background: var(--accent-light);
+    color: var(--accent-text);
+    border-color: #AFA9EC;
+  }
+
+  /* Privacy */
+  .privacy-row { display: flex; gap: 8px; }
+  .prv-btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 13px;
+    font-family: 'Noto Sans KR', sans-serif;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text-muted);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s;
+  }
+  .prv-btn.active {
+    background: var(--green-light);
+    color: var(--green);
+    border-color: #5DCAA5;
+    font-weight: 500;
+  }
+
+  /* Submit */
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-top: 4px;
+    transition: opacity 0.15s, transform 0.1s;
+    letter-spacing: 0.01em;
+  }
+  .submit-btn:hover { opacity: 0.92; }
+  .submit-btn:active { transform: scale(0.98); }
+
+  /* Success */
+  .success {
+    display: none;
+    text-align: center;
+    padding: 48px 0 32px;
+  }
+  .success-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .success h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .success p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+  .reset-btn {
+    display: inline-block;
+    padding: 11px 28px;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .reset-btn:hover { background: var(--accent-light); }
+
+  /* Prayer list */
+  .list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .list-count {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .prayer-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
+  .prayer-item:hover { border-color: var(--border-hover); }
+
+  .item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .item-left { display: flex; align-items: center; gap: 10px; }
+  .avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    color: var(--accent-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .cat-badge {
+    font-size: 11px;
+    background: var(--green-light);
+    color: var(--green);
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .prayed-btn {
+    font-size: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .prayed-btn.done {
+    background: var(--accent-light);
+    color: var(--accent-text);
+    border-color: #AFA9EC;
+  }
+  .item-text {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .empty {
+    text-align: center;
+    padding: 48px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .empty span { font-size: 32px; display: block; margin-bottom: 12px; }
+
+  /* Deadline banner */
+  .deadline-bar {
+    background: var(--accent-light);
+    border: 1px solid #CEC BF6;
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--accent-text);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .deadline-bar strong { font-weight: 500; }
+
+  /* Fade in */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .prayer-item { animation: fadeUp 0.25s ease both; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="week-pill" id="weekPill">2025년 4월 3주차</div>
+    <h1>기도제목 나눔 🙏</h1>
+    <p id="groupLabel">청년부 · 매주 화요일 오후 6시 마감</p>
+  </div>
+
+  <div class="tab-wrap">
+    <div class="tab active" onclick="switchTab('write', this)">기도제목 쓰기</div>
+    <div class="tab" onclick="switchTab('list', this)">함께 기도하기</div>
+  </div>
+
+  <!-- Write Tab -->
+  <div id="writeTab">
+    <div id="formArea">
+      <div class="deadline-bar">
+        <span>⏰</span>
+        <span>마감까지 <strong id="countdown">계산 중...</strong> 남았어요</span>
+      </div>
+
+      <div class="card">
+        <span class="field-label">이름 (선택)</span>
+        <input type="text" id="nameInput" placeholder="익명으로 남기려면 비워두세요" />
+      </div>
+
+      <div class="card">
+        <span class="field-label">이번 주 기도제목 <span class="required">*</span></span>
+        <textarea id="prayerInput" placeholder="짧게 한 줄도 괜찮아요 ✍️"></textarea>
+      </div>
+
+      <div class="card">
+        <span class="field-label">카테고리 (선택)</span>
+        <div class="cats">
+          <div class="cat" onclick="toggleCat(this)">건강</div>
+          <div class="cat" onclick="toggleCat(this)">학업·직장</div>
+          <div class="cat" onclick="toggleCat(this)">가족</div>
+          <div class="cat" onclick="toggleCat(this)">신앙·영적성장</div>
+          <div class="cat" onclick="toggleCat(this)">관계</div>
+          <div class="cat" onclick="toggleCat(this)">기타</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <span class="field-label">공개 범위</span>
+        <div class="privacy-row">
+          <button class="prv-btn active" id="pubBtn" onclick="setPrivacy('public')">✅ 모임에서 공개</button>
+          <button class="prv-btn" id="priBtn" onclick="setPrivacy('private')">🔒 리더만 보기</button>
+        </div>
+      </div>
+
+      <button class="submit-btn" onclick="submitPrayer()">기도제목 제출하기</button>
+    </div>
+
+    <div class="success" id="successMsg">
+      <span class="success-icon">🙏</span>
+      <h2>기도해드릴게요!</h2>
+      <p>제출해줘서 고마워요<br>함께 기도할게요</p>
+      <button class="reset-btn" onclick="resetForm()">다시 작성하기</button>
+    </div>
+  </div>
+
+  <!-- List Tab -->
+  <div id="listTab" style="display:none">
+    <div class="list-header">
+      <span class="list-count" id="listCount">0개의 기도제목</span>
+    </div>
+    <div id="prayerList">
+      <div class="empty">
+        <span>🕊️</span>
+        아직 기도제목이 없어요<br>첫 번째로 나눠보세요!
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Config ─────────────────────────────────────────
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyv8yuaA5wSN2rVfUOiaElM6IV1B-IHbqFsBaualdqWWzzmw8jLJRjP6CZXoDb2eyH9/exec';
+
+  let privacy = 'public';
+
+  // ── Week label ─────────────────────────────────────
+  (function() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = now.getMonth() + 1;
+    const w = Math.ceil(now.getDate() / 7);
+    document.getElementById('weekPill').textContent = y + '년 ' + m + '월 ' + w + '주차';
+  })();
+
+  // ── Countdown (next Tuesday 18:00) ─────────────────
+  function updateCountdown() {
+    const now = new Date();
+    const next = new Date(now);
+    const day = now.getDay();
+    const daysUntilTue = (2 - day + 7) % 7 || 7;
+    next.setDate(now.getDate() + daysUntilTue);
+    next.setHours(18, 0, 0, 0);
+    const diff = next - now;
+    if (diff <= 0) { document.getElementById('countdown').textContent = '마감됨'; return; }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    document.getElementById('countdown').textContent = h + '시간 ' + m + '분';
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  // ── Tabs ───────────────────────────────────────────
+  function switchTab(tab, el) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.getElementById('writeTab').style.display = tab === 'write' ? 'block' : 'none';
+    document.getElementById('listTab').style.display = tab === 'list' ? 'block' : 'none';
+    if (tab === 'list') renderList();
+  }
+
+  // ── Category toggle ────────────────────────────────
+  function toggleCat(el) { el.classList.toggle('active'); }
+
+  // ── Privacy ────────────────────────────────────────
+  function setPrivacy(val) {
+    privacy = val;
+    document.getElementById('pubBtn').classList.toggle('active', val === 'public');
+    document.getElementById('priBtn').classList.toggle('active', val === 'private');
+  }
+
+  // ── Submit → Google Sheets ─────────────────────────
+  async function submitPrayer() {
+    const text = document.getElementById('prayerInput').value.trim();
+    if (!text) {
+      const ta = document.getElementById('prayerInput');
+      ta.style.borderColor = '#E24B4A';
+      ta.focus();
+      setTimeout(() => ta.style.borderColor = '', 1200);
+      return;
+    }
+    const name = document.getElementById('nameInput').value.trim() || '익명';
+    const cats = [...document.querySelectorAll('.cat.active')].map(el => el.textContent);
+
+    const btn = document.querySelector('.submit-btn');
+    btn.textContent = '제출 중...';
+    btn.disabled = true;
+
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, prayer: text, category: cats.join(', '), privacy })
+      });
+    } catch(e) {}
+
+    btn.textContent = '기도제목 제출하기';
+    btn.disabled = false;
+    document.getElementById('formArea').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+
+  // ── Reset ──────────────────────────────────────────
+  function resetForm() {
+    document.getElementById('prayerInput').value = '';
+    document.getElementById('nameInput').value = '';
+    document.querySelectorAll('.cat').forEach(el => el.classList.remove('active'));
+    setPrivacy('public');
+    document.getElementById('formArea').style.display = 'block';
+    document.getElementById('successMsg').style.display = 'none';
+  }
+
+  // ── Render list (fetch from sheet) ─────────────────
+  async function renderList() {
+    const container = document.getElementById('prayerList');
+    container.innerHTML = '<div class="empty"><span>⏳</span>불러오는 중...</div>';
+
+    try {
+      const res = await fetch(SHEET_URL + '?action=get');
+      const rows = await res.json();
+      const visible = rows.filter(r => r.privacy === '모임에서 공개' || r.privacy === 'public');
+      document.getElementById('listCount').textContent = visible.length + '개의 기도제목';
+
+      if (visible.length === 0) {
+        container.innerHTML = '<div class="empty"><span>🕊️</span>아직 기도제목이 없어요<br>첫 번째로 나눠보세요!</div>';
+        return;
+      }
+
+      container.innerHTML = visible.map((p, i) => {
+        const initials = (!p.name || p.name === '익명') ? '?' : p.name.slice(0, 1);
+        const catBadge = p.category ? '<span class="cat-badge">' + p.category.split(',')[0] + '</span>' : '';
+        return (
+          '<div class="prayer-item" style="animation-delay:' + (i * 0.04) + 's">' +
+            '<div class="item-top">' +
+              '<div class="item-left">' +
+                '<div class="avatar">' + initials + '</div>' +
+                '<span class="item-name">' + (p.name || '익명') + '</span>' +
+                catBadge +
+              '</div>' +
+              '<span style="font-size:11px;color:var(--text-muted)">' + (p.date || '') + '</span>' +
+            '</div>' +
+            '<p class="item-text">' + (p.prayer || '').replace(/</g,'&lt;') + '</p>' +
+          '</div>'
+        );
+      }).join('');
+    } catch(e) {
+      container.innerHTML = '<div class="empty"><span>⚠️</span>불러오기 실패<br>잠시 후 다시 시도해주세요</div>';
+    }
+  }
+</script>
+</body>
+</html>
