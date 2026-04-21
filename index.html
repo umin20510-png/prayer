@@ -19,6 +19,8 @@
   --accent-text: #3C3489;
   --green: #0F6E56;
   --green-light: #E1F5EE;
+  --amber: #854F0B;
+  --amber-light: #FAEEDA;
   --radius: 14px;
   --radius-sm: 8px;
 }
@@ -31,91 +33,45 @@ html, body {
   -webkit-text-size-adjust: 100%;
 }
 
-.container {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 0 16px 80px;
-}
+.container { max-width: 480px; margin: 0 auto; padding: 0 16px 80px; }
 
 .header { text-align: center; padding: 40px 0 28px; }
 .week-pill {
-  display: inline-block;
-  background: var(--accent-light);
-  color: var(--accent-text);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 4px 14px;
-  border-radius: 20px;
-  margin-bottom: 12px;
-  letter-spacing: 0.03em;
+  display: inline-block; background: var(--accent-light); color: var(--accent-text);
+  font-size: 12px; font-weight: 500; padding: 4px 14px; border-radius: 20px;
+  margin-bottom: 12px; letter-spacing: 0.03em;
 }
 .header h1 {
-  font-family: 'Noto Serif KR', serif;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  margin-bottom: 5px;
+  font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600;
+  letter-spacing: -0.02em; margin-bottom: 5px;
 }
 .header p { font-size: 13px; color: var(--muted); }
 
 .tab-wrap {
-  background: rgba(0,0,0,0.05);
-  border-radius: 12px;
-  padding: 4px;
-  display: flex;
-  gap: 3px;
-  margin-bottom: 20px;
+  background: rgba(0,0,0,0.05); border-radius: 12px; padding: 4px;
+  display: flex; gap: 3px; margin-bottom: 20px;
 }
 .tab {
-  flex: 1;
-  text-align: center;
-  padding: 9px 0;
-  font-size: 14px;
-  border-radius: 9px;
-  cursor: pointer;
-  color: var(--muted);
-  transition: all 0.2s;
-  user-select: none;
+  flex: 1; text-align: center; padding: 9px 0; font-size: 14px;
+  border-radius: 9px; cursor: pointer; color: var(--muted); transition: all 0.2s; user-select: none;
 }
-.tab.active {
-  background: var(--surface);
-  color: var(--text);
-  font-weight: 500;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-}
+.tab.active { background: var(--surface); color: var(--text); font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  margin-bottom: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px;
 }
 .field-label {
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  margin-bottom: 10px;
-  display: block;
+  font-size: 11px; font-weight: 500; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; display: block;
 }
 .required { color: var(--accent); margin-left: 2px; }
 
-input[type="text"],
-input[type="password"],
-textarea {
-  width: 100%;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 15px;
-  color: var(--text);
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 11px 14px;
-  -webkit-appearance: none;
-  appearance: none;
-  transition: border-color 0.2s;
+input[type="text"], input[type="password"], textarea {
+  width: 100%; font-family: 'Noto Sans KR', sans-serif; font-size: 15px;
+  color: var(--text); background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 11px 14px;
+  -webkit-appearance: none; appearance: none; transition: border-color 0.2s;
 }
 input:focus, textarea:focus { outline: none; border-color: var(--accent); }
 input::placeholder, textarea::placeholder { color: #bbb; }
@@ -123,80 +79,64 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
 
 .chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .chip {
-  font-size: 13px;
-  padding: 7px 16px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-  user-select: none;
-  white-space: nowrap;
+  font-size: 13px; padding: 7px 16px; border-radius: 20px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--muted); cursor: pointer; transition: all 0.15s;
+  user-select: none; white-space: nowrap;
 }
-.chip.active {
-  background: var(--accent-light);
-  color: var(--accent-text);
-  border-color: #AFA9EC;
-  font-weight: 500;
-}
+.chip.active { background: var(--accent-light); color: var(--accent-text); border-color: #AFA9EC; font-weight: 500; }
 
 .cats { display: flex; flex-wrap: wrap; gap: 8px; }
 .cat {
-  font-size: 13px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-  user-select: none;
+  font-size: 13px; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--muted); cursor: pointer; transition: all 0.15s; user-select: none;
 }
 .cat.active { background: var(--accent-light); color: var(--accent-text); border-color: #AFA9EC; }
 
 .prv-row { display: flex; gap: 8px; }
 .prv-btn {
-  flex: 1;
-  padding: 10px;
-  font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--muted);
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.15s;
+  flex: 1; padding: 10px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif;
+  border-radius: var(--radius-sm); border: 1px solid var(--border);
+  background: var(--bg); color: var(--muted); cursor: pointer; text-align: center; transition: all 0.15s;
 }
 .prv-btn.active { background: var(--green-light); color: var(--green); border-color: #5DCAA5; font-weight: 500; }
 
 .deadline-bar {
-  background: var(--accent-light);
-  border: 1px solid #CECBF6;
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
-  font-size: 13px;
-  color: var(--accent-text);
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  background: var(--accent-light); border: 1px solid #CECBF6; border-radius: var(--radius-sm);
+  padding: 10px 14px; font-size: 13px; color: var(--accent-text);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
 }
 
+/* 알림 설정 카드 */
+.notif-card {
+  background: var(--amber-light); border: 1px solid #FAC775; border-radius: var(--radius);
+  padding: 16px 18px; margin-bottom: 12px;
+}
+.notif-toggle {
+  display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none;
+}
+.notif-toggle input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); flex-shrink: 0; }
+.notif-toggle span { font-size: 14px; color: var(--text); }
+.notif-body { margin-top: 14px; display: none; }
+.notif-body.open { display: block; }
+.notif-code-row { display: flex; gap: 8px; align-items: center; }
+.notif-code-row input { flex: 1; }
+.gen-btn {
+  padding: 11px 14px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif;
+  background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm);
+  cursor: pointer; white-space: nowrap;
+}
+.notif-hint {
+  margin-top: 10px; font-size: 12px; color: var(--amber); line-height: 1.7;
+  background: rgba(255,255,255,0.55); border-radius: var(--radius-sm); padding: 10px 12px;
+}
+.notif-hint a { color: var(--accent); text-decoration: underline; }
+.notif-hint strong { color: var(--amber); }
+
 .submit-btn {
-  width: 100%;
-  padding: 14px;
-  font-size: 15px;
-  font-weight: 500;
-  font-family: 'Noto Sans KR', sans-serif;
-  background: var(--accent);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  margin-top: 4px;
-  transition: opacity 0.15s, transform 0.1s;
+  width: 100%; padding: 14px; font-size: 15px; font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif; background: var(--accent);
+  color: #fff; border: none; border-radius: var(--radius); cursor: pointer;
+  margin-top: 4px; transition: opacity 0.15s, transform 0.1s;
 }
 .submit-btn:hover { opacity: 0.9; }
 .submit-btn:active { transform: scale(0.98); }
@@ -205,138 +145,96 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
 .success { display: none; text-align: center; padding: 48px 0 32px; }
 .success-icon { font-size: 44px; margin-bottom: 14px; display: block; }
 .success h2 { font-family: 'Noto Serif KR', serif; font-size: 22px; margin-bottom: 8px; }
-.success p { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+.success p { font-size: 14px; color: var(--muted); margin-bottom: 24px; line-height: 1.7; }
 .outline-btn {
-  display: inline-block;
-  padding: 10px 26px;
-  font-size: 14px;
-  font-family: 'Noto Sans KR', sans-serif;
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 24px;
-  cursor: pointer;
-  transition: all 0.15s;
+  display: inline-block; padding: 10px 26px; font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif; background: transparent; color: var(--accent);
+  border: 1px solid var(--accent); border-radius: 24px; cursor: pointer; transition: all 0.15s;
 }
 .outline-btn:hover { background: var(--accent-light); }
 
 .list-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 14px;
-  gap: 10px;
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 10px;
 }
 .list-count { font-size: 13px; color: var(--muted); white-space: nowrap; }
 .leader-toggle {
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--muted);
-  cursor: pointer;
-  white-space: nowrap;
+  font-size: 12px; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--muted); cursor: pointer; white-space: nowrap;
   font-family: 'Noto Sans KR', sans-serif;
 }
-.leader-toggle.on { background: #FAEEDA; color: #633806; border-color: #EF9F27; font-weight: 500; }
+.leader-toggle.on { background: var(--amber-light); color: var(--amber); border-color: #EF9F27; font-weight: 500; }
 
 .group-filter {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 14px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 2px;
+  display: flex; gap: 6px; margin-bottom: 14px;
+  overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px;
 }
 .group-filter::-webkit-scrollbar { display: none; }
 .gf-btn {
-  font-size: 12px;
-  padding: 5px 14px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--muted);
-  cursor: pointer;
-  white-space: nowrap;
-  flex-shrink: 0;
-  transition: all 0.15s;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px; padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--muted); cursor: pointer; white-space: nowrap;
+  flex-shrink: 0; transition: all 0.15s; font-family: 'Noto Sans KR', sans-serif;
 }
 .gf-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 500; }
 
 .prayer-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  margin-bottom: 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px; margin-bottom: 10px;
   animation: fadeUp 0.22s ease both;
 }
 .item-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  gap: 8px;
+  display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; gap: 8px;
 }
 .item-left { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; min-width: 0; }
 .avatar {
-  width: 30px; height: 30px;
-  border-radius: 50%;
-  background: var(--accent-light);
-  color: var(--accent-text);
+  width: 30px; height: 30px; border-radius: 50%; background: var(--accent-light); color: var(--accent-text);
   display: flex; align-items: center; justify-content: center;
-  font-size: 13px; font-weight: 500;
-  flex-shrink: 0;
+  font-size: 13px; font-weight: 500; flex-shrink: 0;
 }
-.avatar.priv { background: #FAEEDA; color: #633806; }
+.avatar.priv { background: var(--amber-light); color: var(--amber); }
 .item-name { font-size: 14px; font-weight: 500; color: var(--text); }
-.badge {
-  font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 20px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
+.badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
 .badge-group { background: var(--accent-light); color: var(--accent-text); }
 .badge-cat   { background: var(--green-light); color: var(--green); }
-.badge-priv  { background: #FAEEDA; color: #633806; }
-.item-date { font-size: 11px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
-.item-text { font-size: 14px; color: var(--text); line-height: 1.65; }
+.badge-priv  { background: var(--amber-light); color: var(--amber); }
+.item-date   { font-size: 11px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+.item-text   { font-size: 14px; color: var(--text); line-height: 1.65; }
+
+.item-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+.prayed-count { font-size: 12px; color: var(--muted); }
+.prayed-btn {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 12px;
+  font-family: 'Noto Sans KR', sans-serif; padding: 5px 14px; border-radius: 20px;
+  cursor: pointer; border: 1px solid var(--border); background: var(--bg); color: var(--muted);
+  transition: all 0.15s; white-space: nowrap;
+}
+.prayed-btn.done { background: var(--accent-light); color: var(--accent-text); border-color: #AFA9EC; }
+.prayed-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
 /* Modal */
 .modal-bg {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 200;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+  z-index: 200; align-items: center; justify-content: center; padding: 20px;
 }
 .modal-bg.open { display: flex; }
 .modal {
-  background: var(--surface);
-  border-radius: var(--radius);
-  padding: 28px 22px 22px;
-  width: 100%;
-  max-width: 300px;
+  background: var(--surface); border-radius: var(--radius);
+  padding: 28px 22px 22px; width: 100%; max-width: 300px;
 }
 .modal h3 { font-size: 17px; font-weight: 500; margin-bottom: 6px; }
 .modal p { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
 .modal-err { font-size: 13px; color: #A32D2D; margin-top: 8px; display: none; }
 .modal-btns { display: flex; gap: 8px; margin-top: 14px; }
 .modal-btns button {
-  flex: 1; padding: 11px;
-  border-radius: var(--radius-sm);
-  font-size: 14px;
-  font-family: 'Noto Sans KR', sans-serif;
-  cursor: pointer;
+  flex: 1; padding: 11px; border-radius: var(--radius-sm);
+  font-size: 14px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer;
 }
 .btn-cancel { background: var(--bg); border: 1px solid var(--border); color: var(--muted); }
 .btn-ok     { background: var(--accent); border: none; color: #fff; font-weight: 500; }
+
+.refresh-btn {
+  font-size: 12px; padding: 5px 10px; border-radius: 20px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--muted); cursor: pointer; font-family: 'Noto Sans KR', sans-serif;
+}
 
 .empty { text-align: center; padding: 40px 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
 .empty span { font-size: 30px; display: block; margin-bottom: 10px; }
@@ -349,6 +247,7 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
 </head>
 <body>
 
+<!-- Leader modal -->
 <div class="modal-bg" id="leaderModal">
   <div class="modal">
     <h3>🔑 리더 확인</h3>
@@ -366,7 +265,7 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
   <div class="header">
     <div class="week-pill" id="weekPill"></div>
     <h1>기도제목 나눔 🙏</h1>
-    <p>청년부 · 매주 화요일 오후 6시 마감</p>
+    <p>1청 1진 3팀</p>
   </div>
 
   <div class="tab-wrap">
@@ -377,9 +276,9 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
   <!-- Write Tab -->
   <div id="writeTab">
     <div id="formArea">
-      <div class="deadline-bar">
+      <div class="deadline-bar" id="deadlineBar" style="display:none">
         <span>⏰</span>
-        <span>마감까지 <strong id="countdown">계산 중...</strong> 남았어요</span>
+        <span>마감까지 <strong id="countdown"></strong> 남았어요</span>
       </div>
 
       <div class="card">
@@ -421,13 +320,36 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
         </div>
       </div>
 
+      <!-- 알림 설정 -->
+      <div class="notif-card">
+        <label class="notif-toggle">
+          <input type="checkbox" id="notifCheck" onchange="toggleNotif(this)" />
+          <span>🔔 기도받으면 알림 받기</span>
+        </label>
+        <div class="notif-body" id="notifBody">
+          <p style="font-size:13px;color:var(--muted);margin:10px 0 10px">
+            나만의 알림 코드를 설정하세요. 누군가 기도해주면 알림이 와요!
+          </p>
+          <div class="notif-code-row">
+            <input type="text" id="notifCode" placeholder="예: hong1234" maxlength="30" />
+            <button class="gen-btn" onclick="genCode()">자동생성</button>
+          </div>
+          <div class="notif-hint" id="notifHint" style="display:none">
+            📱 <strong>알림 구독하는 방법</strong><br>
+            코드 입력 후 아래 링크를 한 번만 방문해서 구독하세요:<br>
+            <a id="notifLink" href="#" target="_blank">ntfy.sh 구독 링크</a><br>
+            <span style="font-size:11px;color:var(--muted)">또는 ntfy 앱 설치 후 같은 코드로 구독</span>
+          </div>
+        </div>
+      </div>
+
       <button class="submit-btn" id="submitBtn" onclick="submitPrayer()">기도제목 제출하기</button>
     </div>
 
     <div class="success" id="successMsg">
       <span class="success-icon">🙏</span>
       <h2>기도해드릴게요!</h2>
-      <p>제출해줘서 고마워요<br>함께 기도할게요</p>
+      <p id="successDetail">제출해줘서 고마워요<br>함께 기도할게요</p>
       <button class="outline-btn" onclick="resetForm()">다시 작성하기</button>
     </div>
   </div>
@@ -436,7 +358,10 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
   <div id="listTab" style="display:none">
     <div class="list-toolbar">
       <span class="list-count" id="listCount">불러오는 중...</span>
-      <button class="leader-toggle" id="leaderBtn" onclick="toggleLeader()">🔑 리더 보기</button>
+      <div style="display:flex;gap:6px">
+        <button class="refresh-btn" onclick="fetchAndRender()">↻ 새로고침</button>
+        <button class="leader-toggle" id="leaderBtn" onclick="toggleLeader()">🔑 리더 보기</button>
+      </div>
     </div>
     <div class="group-filter">
       <div class="gf-btn active" onclick="filterGroup('전체',this)">전체</div>
@@ -451,40 +376,49 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
 </div>
 
 <script>
+// ── Config ──────────────────────────────────────
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyv8yuaA5wSN2rVfUOiaElM6IV1B-IHbqFsBaualdqWWzzmw8jLJRjP6CZXoDb2eyH9/exec';
-const LEADER_PW = '0691'; // ← 원하는 비밀번호로 바꾸세요
+const LEADER_PW  = '0691';           // ← 원하는 비밀번호로 바꾸세요
+const NTFY_BASE  = 'https://ntfy.sh';
+const NTFY_TEAM  = '1jin3team';      // 팀 prefix (ntfy topic prefix)
 
-let privacy = 'public';
+// ── State ────────────────────────────────────────
+let privacy       = 'public';
 let selectedGroup = '';
-let isLeader = false;
-let activeFilter = '전체';
-let allRows = [];
+let isLeader      = false;
+let activeFilter  = '전체';
+let allRows       = [];
+let prayedSet     = JSON.parse(localStorage.getItem('prayed_v2') || '[]');
 
-// Week label
+// ── Week label ───────────────────────────────────
 (function(){
   const now = new Date();
-  const w = Math.ceil(now.getDate() / 7);
+  const w   = Math.ceil(now.getDate() / 7);
   document.getElementById('weekPill').textContent =
     now.getFullYear() + '년 ' + (now.getMonth()+1) + '월 ' + w + '주차';
 })();
 
-// Countdown
-function updateCountdown() {
-  const now = new Date();
-  const next = new Date(now);
-  const d = (2 - now.getDay() + 7) % 7 || 7;
-  next.setDate(now.getDate() + d);
-  next.setHours(18, 0, 0, 0);
-  const diff = next - now;
-  if (diff <= 0) { document.getElementById('countdown').textContent = '마감됨'; return; }
-  const h = Math.floor(diff / 3600000);
-  const m = Math.floor((diff % 3600000) / 60000);
-  document.getElementById('countdown').textContent = h + '시간 ' + m + '분';
-}
-updateCountdown();
-setInterval(updateCountdown, 60000);
+// ── 마감 배너: 일(0)~화(2) 18:00 전에만 표시 ─────
+(function(){
+  const now  = new Date();
+  const day  = now.getDay();
+  const bar  = document.getElementById('deadlineBar');
+  const past = (day === 2 && now.getHours() >= 18) || (day >= 3 && day <= 6);
+  if (past) return;
+  bar.style.display = 'flex';
+  function tick() {
+    const n = new Date(), next = new Date(n);
+    const d = (2 - n.getDay() + 7) % 7 || 7;
+    next.setDate(n.getDate() + d); next.setHours(18, 0, 0, 0);
+    const diff = next - n;
+    if (diff <= 0) { bar.style.display = 'none'; return; }
+    const h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000);
+    document.getElementById('countdown').textContent = h + '시간 ' + m + '분';
+  }
+  tick(); setInterval(tick, 60000);
+})();
 
-// Tabs
+// ── Tabs ─────────────────────────────────────────
 function switchTab(tab, el) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
@@ -493,21 +427,41 @@ function switchTab(tab, el) {
   if (tab === 'list') fetchAndRender();
 }
 
-// Group select
+// ── Group select ─────────────────────────────────
 function selectGroup(val, el) {
   selectedGroup = val;
   document.querySelectorAll('#groupChips .chip').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
 }
 
-// Privacy
+// ── Privacy ──────────────────────────────────────
 function setPrivacy(val) {
   privacy = val;
   document.getElementById('pubBtn').classList.toggle('active', val === 'public');
   document.getElementById('priBtn').classList.toggle('active', val === 'private');
 }
 
-// Submit
+// ── 알림 설정 ────────────────────────────────────
+function toggleNotif(cb) {
+  document.getElementById('notifBody').classList.toggle('open', cb.checked);
+}
+function genCode() {
+  const rand = Math.random().toString(36).slice(2, 8);
+  document.getElementById('notifCode').value = rand;
+  updateNotifLink();
+}
+function updateNotifLink() {
+  const code = document.getElementById('notifCode').value.trim();
+  if (!code) { document.getElementById('notifHint').style.display = 'none'; return; }
+  const topic = NTFY_TEAM + '-' + code;
+  document.getElementById('notifHint').style.display = 'block';
+  const link = document.getElementById('notifLink');
+  link.href = NTFY_BASE + '/' + topic;
+  link.textContent = NTFY_BASE + '/' + topic;
+}
+document.getElementById('notifCode').addEventListener('input', updateNotifLink);
+
+// ── Submit ────────────────────────────────────────
 async function submitPrayer() {
   if (!selectedGroup) {
     document.querySelectorAll('#groupChips .chip').forEach(c => {
@@ -519,31 +473,47 @@ async function submitPrayer() {
   const text = document.getElementById('prayerInput').value.trim();
   if (!text) {
     const ta = document.getElementById('prayerInput');
-    ta.style.borderColor = '#E24B4A';
-    ta.focus();
+    ta.style.borderColor = '#E24B4A'; ta.focus();
     setTimeout(() => ta.style.borderColor = '', 1200);
     return;
   }
-  const name = document.getElementById('nameInput').value.trim() || '익명';
-  const cats = [...document.querySelectorAll('.cat.active')].map(c => c.textContent);
+  const name      = document.getElementById('nameInput').value.trim() || '익명';
+  const cats      = [...document.querySelectorAll('.cat.active')].map(c => c.textContent);
+  const notifOn   = document.getElementById('notifCheck').checked;
+  const notifCode = notifOn ? document.getElementById('notifCode').value.trim() : '';
+
   const btn = document.getElementById('submitBtn');
   btn.textContent = '제출 중...'; btn.disabled = true;
+
   try {
     await fetch(SHEET_URL, {
       method: 'POST', mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, prayer: text, category: cats.join(', '), privacy, group: selectedGroup })
+      body: JSON.stringify({
+        name, prayer: text, category: cats.join(', '),
+        privacy, group: selectedGroup,
+        notif_code: notifCode
+      })
     });
   } catch(e) {}
+
   btn.textContent = '기도제목 제출하기'; btn.disabled = false;
   document.getElementById('formArea').style.display = 'none';
+  const detail = document.getElementById('successDetail');
+  detail.innerHTML = notifCode
+    ? '제출해줘서 고마워요 😊<br>기도받으면 알림이 갈 거예요!<br><span style="font-size:12px;color:var(--muted)">알림 코드: ' + notifCode + '</span>'
+    : '제출해줘서 고마워요<br>함께 기도할게요';
   document.getElementById('successMsg').style.display = 'block';
 }
 
-// Reset
+// ── Reset ─────────────────────────────────────────
 function resetForm() {
   document.getElementById('prayerInput').value = '';
   document.getElementById('nameInput').value = '';
+  document.getElementById('notifCode').value = '';
+  document.getElementById('notifCheck').checked = false;
+  document.getElementById('notifBody').classList.remove('open');
+  document.getElementById('notifHint').style.display = 'none';
   document.querySelectorAll('.cat').forEach(c => c.classList.remove('active'));
   document.querySelectorAll('#groupChips .chip').forEach(c => c.classList.remove('active'));
   selectedGroup = '';
@@ -552,7 +522,7 @@ function resetForm() {
   document.getElementById('successMsg').style.display = 'none';
 }
 
-// Leader modal
+// ── Leader modal ──────────────────────────────────
 function toggleLeader() {
   if (isLeader) {
     isLeader = false;
@@ -574,14 +544,13 @@ function confirmLeader() {
     isLeader = true;
     document.getElementById('leaderBtn').classList.add('on');
     document.getElementById('leaderBtn').textContent = '✅ 리더 모드';
-    closeModal();
-    renderList();
+    closeModal(); renderList();
   } else {
     document.getElementById('pwErr').style.display = 'block';
   }
 }
 
-// Group filter
+// ── Group filter ──────────────────────────────────
 function filterGroup(val, el) {
   activeFilter = val;
   document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
@@ -589,22 +558,31 @@ function filterGroup(val, el) {
   renderList();
 }
 
-// Fetch
+// ── Fetch ─────────────────────────────────────────
 async function fetchAndRender() {
+  document.getElementById('listCount').textContent = '불러오는 중...';
   document.getElementById('prayerList').innerHTML = '<div class="empty"><span>⏳</span>불러오는 중...</div>';
   try {
-    const res = await fetch(SHEET_URL + '?action=get');
-    allRows = await res.json();
+    const res  = await fetch(SHEET_URL + '?action=get');
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); } catch(e) { data = []; }
+    allRows = Array.isArray(data) ? data : [];
     renderList();
   } catch(e) {
-    document.getElementById('prayerList').innerHTML = '<div class="empty"><span>⚠️</span>불러오기 실패<br>잠시 후 다시 시도해주세요</div>';
+    document.getElementById('prayerList').innerHTML =
+      '<div class="empty"><span>⚠️</span>불러오기 실패<br>새로고침을 눌러주세요</div>';
+    document.getElementById('listCount').textContent = '오류';
   }
 }
 
-// Render
+// ── Render ────────────────────────────────────────
 function renderList() {
   let rows = allRows;
-  if (!isLeader) rows = rows.filter(r => r.privacy === 'public' || r.privacy === '모임에서 공개');
+  if (!isLeader) rows = rows.filter(r => {
+    const p = (r.privacy || '').trim();
+    return p === 'public' || p === '모임에서 공개' || p === '';
+  });
   if (activeFilter !== '전체') rows = rows.filter(r => r.group === activeFilter);
 
   document.getElementById('listCount').textContent = rows.length + '개의 기도제목';
@@ -615,27 +593,76 @@ function renderList() {
     return;
   }
 
-  container.innerHTML = rows.map((p, i) => {
-    const initials  = (!p.name || p.name === '익명') ? '?' : p.name.slice(0,1);
-    const isPriv    = p.privacy === 'private' || p.privacy === '리더만 보기';
+  const sorted = [...rows].reverse();
+
+  container.innerHTML = sorted.map((p, i) => {
+    const key        = (p.name||'') + '|' + (p.prayer||'') + '|' + (p.date||'');
+    const encKey     = encodeURIComponent(key);
+    const notifCode  = encodeURIComponent(p.notif_code || '');
+    const initials   = (!p.name || p.name === '익명') ? '?' : p.name.slice(0,1);
+    const isPriv     = (p.privacy||'').trim() === 'private' || (p.privacy||'').trim() === '리더만 보기';
     const groupBadge = p.group    ? '<span class="badge badge-group">' + p.group + '</span>' : '';
-    const catBadge   = p.category ? '<span class="badge badge-cat">'   + p.category.split(',')[0].trim() + '</span>' : '';
+    const catBadge   = p.category ? '<span class="badge badge-cat">' + p.category.split(',')[0].trim() + '</span>' : '';
     const privBadge  = isPriv     ? '<span class="badge badge-priv">🔒 비공개</span>' : '';
     const dateStr    = p.date     ? '<span class="item-date">' + String(p.date).slice(0,10) + '</span>' : '';
+    const prayed     = prayedSet.includes(key);
+    const prayedCls  = prayed ? 'prayed-btn done' : 'prayed-btn';
+    const prayedTxt  = prayed ? '✓ 기도했어요' : '🙏 기도하기';
+    const prayCount  = Number(p.pray_count || 0);
+    const countTxt   = prayCount > 0 ? prayCount + '명이 기도했어요' : '';
+
     return (
       '<div class="prayer-item" style="animation-delay:' + (i*0.04) + 's">' +
         '<div class="item-top">' +
           '<div class="item-left">' +
-            '<div class="avatar' + (isPriv ? ' priv' : '') + '">' + initials + '</div>' +
-            '<span class="item-name">' + (p.name || '익명') + '</span>' +
+            '<div class="avatar' + (isPriv?' priv':'') + '">' + initials + '</div>' +
+            '<span class="item-name">' + (p.name||'익명') + '</span>' +
             groupBadge + catBadge + privBadge +
           '</div>' +
           dateStr +
         '</div>' +
-        '<p class="item-text">' + String(p.prayer || '').replace(/</g,'&lt;') + '</p>' +
+        '<p class="item-text">' + String(p.prayer||'').replace(/</g,'&lt;') + '</p>' +
+        '<div class="item-footer">' +
+          '<span class="prayed-count" id="cnt-' + i + '">' + countTxt + '</span>' +
+          '<button class="' + prayedCls + '" id="btn-' + i + '" ' +
+            'onclick="doPray(this,' + i + ',\'' + encKey + '\',\'' + notifCode + '\')">' +
+            prayedTxt + '</button>' +
+        '</div>' +
       '</div>'
     );
   }).join('');
+}
+
+// ── 기도하기 클릭 → Apps Script → ntfy 알림 ────────
+async function doPray(btn, idx, encKey, encNotifCode) {
+  const key       = decodeURIComponent(encKey);
+  const notifCode = decodeURIComponent(encNotifCode);
+  const alreadyDone = prayedSet.includes(key);
+
+  // UI 즉시 업데이트
+  if (alreadyDone) {
+    prayedSet = prayedSet.filter(k => k !== key);
+    btn.classList.remove('done'); btn.textContent = '🙏 기도하기';
+  } else {
+    prayedSet.push(key);
+    btn.classList.add('done'); btn.textContent = '✓ 기도했어요';
+  }
+  localStorage.setItem('prayed_v2', JSON.stringify(prayedSet));
+
+  // 기도 횟수 카운트 + 알림 전송 (Apps Script에 요청)
+  if (!alreadyDone && notifCode) {
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'notify',
+          notif_code: notifCode,
+          prayer_key: key
+        })
+      });
+    } catch(e) {}
+  }
 }
 </script>
 </body>
