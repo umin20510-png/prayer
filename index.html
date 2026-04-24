@@ -640,9 +640,8 @@ function confirmDelete() {
     document.getElementById('selAllBtn').classList.remove('on');
     document.getElementById('selAllBtn').textContent = '전체 선택';
     renderList();
-    // 1.5초 후 시트에서 재확인
-    setTimeout(fetchAndRender, 1500);
-  };
+    // 삭제 완료 표시 (캐시 때문에 바로 새로고침하면 되돌아올 수 있어요)
+    document.getElementById('listCount').textContent = visible.length + '개의 기도제목 (삭제 완료 ✓)';
 
   // GET 방식으로 삭제 요청 (no-cors 우회)
   const s  = document.createElement('script');
