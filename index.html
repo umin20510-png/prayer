@@ -16,50 +16,64 @@
   --red: #B91C1C; --red-light: #FEE2E2;
   --radius: 14px; --radius-sm: 8px;
 }
-html, body { background: var(--bg); font-family: 'Noto Sans KR', sans-serif; color: var(--text); min-height: 100vh; -webkit-text-size-adjust: 100%; }
+html, body {
+  background: var(--bg); font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text); min-height: 100vh; -webkit-text-size-adjust: 100%;
+}
 .container { max-width: 480px; margin: 0 auto; padding: 0 16px 80px; }
 
+/* Header */
 .header { text-align: center; padding: 40px 0 28px; }
 .week-pill { display: inline-block; background: var(--accent-light); color: var(--accent-text); font-size: 12px; font-weight: 500; padding: 4px 14px; border-radius: 20px; margin-bottom: 12px; letter-spacing: 0.03em; }
 .header h1 { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 5px; }
 .header p { font-size: 13px; color: var(--muted); }
 
+/* Tabs */
 .tab-wrap { background: rgba(0,0,0,0.05); border-radius: 12px; padding: 4px; display: flex; gap: 3px; margin-bottom: 20px; }
 .tab { flex: 1; text-align: center; padding: 9px 0; font-size: 14px; border-radius: 9px; cursor: pointer; color: var(--muted); transition: all 0.2s; user-select: none; }
 .tab.active { background: var(--surface); color: var(--text); font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
 
+/* Card */
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px; }
 .field-label { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; display: block; }
 .required { color: var(--accent); margin-left: 2px; }
 
 input[type="text"], input[type="password"], textarea {
-  width: 100%; font-family: 'Noto Sans KR', sans-serif; font-size: 15px; color: var(--text);
-  background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 11px 14px; -webkit-appearance: none; appearance: none; transition: border-color 0.2s;
+  width: 100%; font-family: 'Noto Sans KR', sans-serif; font-size: 15px;
+  color: var(--text); background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 11px 14px;
+  -webkit-appearance: none; appearance: none; transition: border-color 0.2s;
 }
 input:focus, textarea:focus { outline: none; border-color: var(--accent); }
 input::placeholder, textarea::placeholder { color: #bbb; }
 textarea { height: 96px; resize: none; line-height: 1.6; }
 
+/* Chips */
 .chips { display: flex; gap: 8px; flex-wrap: wrap; }
 .chip { font-size: 13px; padding: 7px 16px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; transition: all 0.15s; user-select: none; white-space: nowrap; }
 .chip.active { background: var(--accent-light); color: var(--accent-text); border-color: #AFA9EC; font-weight: 500; }
+.chip.error { border-color: var(--red) !important; }
 
+/* Cats */
 .cats { display: flex; flex-wrap: wrap; gap: 8px; }
 .cat { font-size: 13px; padding: 6px 14px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; transition: all 0.15s; user-select: none; }
 .cat.active { background: var(--accent-light); color: var(--accent-text); border-color: #AFA9EC; }
 
+/* Privacy */
 .prv-row { display: flex; gap: 8px; }
 .prv-btn { flex: 1; padding: 10px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; text-align: center; transition: all 0.15s; }
 .prv-btn.active { background: var(--green-light); color: var(--green); border-color: #5DCAA5; font-weight: 500; }
 
+/* Deadline */
 .deadline-bar { background: var(--accent-light); border: 1px solid #CECBF6; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 13px; color: var(--accent-text); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
 
+/* Submit */
 .submit-btn { width: 100%; padding: 14px; font-size: 15px; font-weight: 500; font-family: 'Noto Sans KR', sans-serif; background: var(--accent); color: #fff; border: none; border-radius: var(--radius); cursor: pointer; margin-top: 4px; transition: opacity 0.15s, transform 0.1s; }
 .submit-btn:hover { opacity: 0.9; }
 .submit-btn:active { transform: scale(0.98); }
 .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
+/* Success */
 .success { display: none; text-align: center; padding: 48px 0 32px; }
 .success-icon { font-size: 44px; margin-bottom: 14px; display: block; }
 .success h2 { font-family: 'Noto Serif KR', serif; font-size: 22px; margin-bottom: 8px; }
@@ -72,24 +86,14 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
 .icon-btn { font-size: 12px; padding: 6px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; white-space: nowrap; font-family: 'Noto Sans KR', sans-serif; }
 .icon-btn.on { background: var(--amber-light); color: var(--amber); border-color: #EF9F27; font-weight: 500; }
 
-/* 리더 삭제 툴바 */
-.delete-toolbar {
-  display: none;
-  background: var(--red-light);
-  border: 1px solid #FECACA;
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
-  margin-bottom: 12px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.delete-toolbar.show { display: flex; }
-.select-all-btn { font-size: 13px; font-family: 'Noto Sans KR', sans-serif; color: var(--red); background: transparent; border: 1px solid #FECACA; border-radius: 20px; padding: 5px 12px; cursor: pointer; white-space: nowrap; }
-.select-all-btn.active { background: var(--red); color: #fff; border-color: var(--red); }
-.delete-selected-btn { font-size: 13px; font-family: 'Noto Sans KR', sans-serif; background: var(--red); color: #fff; border: none; border-radius: 20px; padding: 6px 14px; cursor: pointer; white-space: nowrap; }
-.delete-selected-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.selected-count { font-size: 13px; color: var(--red); }
+/* Delete toolbar */
+.del-toolbar { display: none; background: var(--red-light); border: 1px solid #FECACA; border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom: 12px; align-items: center; justify-content: space-between; gap: 8px; }
+.del-toolbar.show { display: flex; }
+.sel-all-btn { font-size: 13px; font-family: 'Noto Sans KR', sans-serif; color: var(--red); background: transparent; border: 1px solid #FECACA; border-radius: 20px; padding: 5px 12px; cursor: pointer; white-space: nowrap; }
+.sel-all-btn.on { background: var(--red); color: #fff; border-color: var(--red); }
+.sel-count { font-size: 13px; color: var(--red); flex: 1; text-align: center; }
+.del-btn { font-size: 13px; font-family: 'Noto Sans KR', sans-serif; background: var(--red); color: #fff; border: none; border-radius: 20px; padding: 6px 16px; cursor: pointer; white-space: nowrap; }
+.del-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* Group filter */
 .group-filter { display: flex; gap: 6px; margin-bottom: 14px; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 2px; }
@@ -101,20 +105,20 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
 .prayer-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 10px; animation: fadeUp 0.22s ease both; transition: border-color 0.15s, background 0.15s; }
 .prayer-item.selected { border-color: var(--red); background: #FFF8F8; }
 .item-row { display: flex; gap: 10px; align-items: flex-start; }
-.item-checkbox { margin-top: 2px; width: 18px; height: 18px; accent-color: var(--red); flex-shrink: 0; display: none; cursor: pointer; }
-.item-checkbox.show { display: block; }
+.item-cb { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--red); flex-shrink: 0; cursor: pointer; display: none; }
+.item-cb.show { display: block; }
 .item-body { flex: 1; min-width: 0; }
 .item-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; gap: 8px; }
-.item-left { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; min-width: 0; }
+.item-left { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; min-width: 0; }
 .avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--accent-light); color: var(--accent-text); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500; flex-shrink: 0; }
 .avatar.priv { background: var(--amber-light); color: var(--amber); }
 .item-name { font-size: 14px; font-weight: 500; }
-.badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+.badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
 .badge-group { background: var(--accent-light); color: var(--accent-text); }
 .badge-cat   { background: var(--green-light); color: var(--green); }
 .badge-priv  { background: var(--amber-light); color: var(--amber); }
 .item-date { font-size: 11px; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
-.item-text { font-size: 14px; line-height: 1.65; }
+.item-text { font-size: 14px; line-height: 1.65; word-break: break-word; }
 
 /* Modal */
 .modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
@@ -122,59 +126,48 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
 .modal { background: var(--surface); border-radius: var(--radius); padding: 28px 22px 22px; width: 100%; max-width: 300px; }
 .modal h3 { font-size: 17px; font-weight: 500; margin-bottom: 6px; }
 .modal p { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
-.modal-err { font-size: 13px; color: #A32D2D; margin-top: 8px; display: none; }
+.modal-err { font-size: 13px; color: var(--red); margin-top: 8px; display: none; }
 .modal-btns { display: flex; gap: 8px; margin-top: 14px; }
 .modal-btns button { flex: 1; padding: 11px; border-radius: var(--radius-sm); font-size: 14px; font-family: 'Noto Sans KR', sans-serif; cursor: pointer; }
 .btn-cancel { background: var(--bg); border: 1px solid var(--border); color: var(--muted); }
-.btn-ok { background: var(--accent); border: none; color: #fff; font-weight: 500; }
+.btn-ok     { background: var(--accent); border: none; color: #fff; font-weight: 500; }
 .btn-danger { background: var(--red); border: none; color: #fff; font-weight: 500; }
 
+/* Empty / loading */
 .empty { text-align: center; padding: 40px 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
 .empty span { font-size: 30px; display: block; margin-bottom: 10px; }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
-.shake { animation: shake 0.3s ease; }
 </style>
 </head>
 <body>
 
-<!-- Leader modal -->
+<!-- 리더 비밀번호 모달 -->
 <div class="modal-bg" id="leaderModal">
   <div class="modal">
     <h3>🔑 리더 확인</h3>
     <p>리더 비밀번호를 입력해주세요</p>
-    <input type="password" id="pwInput" placeholder="비밀번호" onkeydown="if(event.key==='Enter')confirmLeader()" />
+    <input type="password" id="pwInput" placeholder="비밀번호"
+      onkeydown="if(event.key==='Enter') confirmLeader()" />
     <div class="modal-err" id="pwErr">비밀번호가 틀렸어요</div>
     <div class="modal-btns">
       <button class="btn-cancel" onclick="closeModal('leaderModal')">취소</button>
-      <button class="btn-ok" onclick="confirmLeader()">확인</button>
+      <button class="btn-ok"     onclick="confirmLeader()">확인</button>
     </div>
   </div>
 </div>
 
-async function confirmDelete(){
-  closeModal('deleteModal');
-  const indexes=[...selectedIndexes];
-  const deleteBtn=document.getElementById('deleteBtn');
-  deleteBtn.textContent='삭제 중...'; deleteBtn.disabled=true;
-
-  // GET 방식으로 삭제 요청 (no-cors 문제 우회)
-  const old=document.getElementById('__del'); if(old) old.remove();
-  window.__deleteCallback = function(res){
-    selectedIndexes.clear();
-    allRows=allRows.filter(r=>!indexes.includes(r.rowIndex));
-    deleteBtn.textContent='삭제'; deleteBtn.disabled=true;
-    document.getElementById('selectedCount').textContent='0개 선택';
-    document.getElementById('selectAllBtn').classList.remove('active');
-    document.getElementById('selectAllBtn').textContent='전체 선택';
-    setTimeout(fetchAndRender, 1500);
-  };
-  const s=document.createElement('script');
-  s.id='__del';
-  s.src=SHEET_URL+'?action=delete&rows='+indexes.join(',')+'&callback=__deleteCallback&t='+Date.now();
-  document.head.appendChild(s);
-}
+<!-- 삭제 확인 모달 -->
+<div class="modal-bg" id="deleteModal">
+  <div class="modal">
+    <h3>🗑️ 삭제 확인</h3>
+    <p id="deleteMsg">선택한 기도제목을 삭제할까요?<br>삭제하면 되돌릴 수 없어요.</p>
+    <div class="modal-btns">
+      <button class="btn-cancel" onclick="closeModal('deleteModal')">취소</button>
+      <button class="btn-danger" onclick="confirmDelete()">삭제하기</button>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <div class="header">
@@ -184,32 +177,37 @@ async function confirmDelete(){
   </div>
 
   <div class="tab-wrap">
-    <div class="tab active" onclick="switchTab('write',this)">기도제목 쓰기</div>
-    <div class="tab" onclick="switchTab('list',this)">함께 기도하기</div>
+    <div class="tab active" onclick="switchTab('write', this)">기도제목 쓰기</div>
+    <div class="tab"        onclick="switchTab('list',  this)">함께 기도하기</div>
   </div>
 
-  <!-- Write Tab -->
+  <!-- ── 쓰기 탭 ── -->
   <div id="writeTab">
     <div id="formArea">
       <div class="deadline-bar" id="deadlineBar" style="display:none">
-        <span>⏰</span><span>마감까지 <strong id="countdown"></strong> 남았어요</span>
+        <span>⏰</span>
+        <span>마감까지 <strong id="countdown"></strong> 남았어요</span>
       </div>
+
       <div class="card">
         <span class="field-label">조 선택 <span class="required">*</span></span>
         <div class="chips" id="groupChips">
-          <div class="chip" onclick="selectGroup('곽유민조',this)">곽유민조</div>
-          <div class="chip" onclick="selectGroup('김유민조',this)">김유민조</div>
-          <div class="chip" onclick="selectGroup('김정주조',this)">김정주조</div>
+          <div class="chip" onclick="selectGroup('곽유민조', this)">곽유민조</div>
+          <div class="chip" onclick="selectGroup('김유민조', this)">김유민조</div>
+          <div class="chip" onclick="selectGroup('김정주조', this)">김정주조</div>
         </div>
       </div>
+
       <div class="card">
         <span class="field-label">이름 (선택)</span>
         <input type="text" id="nameInput" placeholder="익명으로 남기려면 비워두세요" />
       </div>
+
       <div class="card">
         <span class="field-label">이번 주 기도제목 <span class="required">*</span></span>
         <textarea id="prayerInput" placeholder="짧게 한 줄도 괜찮아요 ✍️"></textarea>
       </div>
+
       <div class="card">
         <span class="field-label">카테고리 (선택)</span>
         <div class="cats">
@@ -221,15 +219,18 @@ async function confirmDelete(){
           <div class="cat" onclick="this.classList.toggle('active')">기타</div>
         </div>
       </div>
+
       <div class="card">
         <span class="field-label">공개 범위</span>
         <div class="prv-row">
           <button class="prv-btn active" id="pubBtn" onclick="setPrivacy('public')">✅ 모임에서 공개</button>
-          <button class="prv-btn" id="priBtn" onclick="setPrivacy('private')">🔒 리더만 보기</button>
+          <button class="prv-btn"        id="priBtn" onclick="setPrivacy('private')">🔒 리더만 보기</button>
         </div>
       </div>
+
       <button class="submit-btn" id="submitBtn" onclick="submitPrayer()">기도제목 제출하기</button>
     </div>
+
     <div class="success" id="successMsg">
       <span class="success-icon">🙏</span>
       <h2>기도해드릴게요!</h2>
@@ -238,28 +239,28 @@ async function confirmDelete(){
     </div>
   </div>
 
-  <!-- List Tab -->
+  <!-- ── 보기 탭 ── -->
   <div id="listTab" style="display:none">
     <div class="list-toolbar">
       <span class="list-count" id="listCount">불러오는 중...</span>
-      <div style="display:flex;gap:6px">
+      <div style="display:flex; gap:6px">
         <button class="icon-btn" onclick="fetchAndRender()">↻ 새로고침</button>
         <button class="icon-btn" id="leaderBtn" onclick="toggleLeader()">🔑 리더 보기</button>
       </div>
     </div>
 
     <!-- 리더 삭제 툴바 -->
-    <div class="delete-toolbar" id="deleteToolbar">
-      <button class="select-all-btn" id="selectAllBtn" onclick="toggleSelectAll()">전체 선택</button>
-      <span class="selected-count" id="selectedCount">0개 선택</span>
-      <button class="delete-selected-btn" id="deleteBtn" onclick="requestDelete()" disabled>삭제</button>
+    <div class="del-toolbar" id="delToolbar">
+      <button class="sel-all-btn" id="selAllBtn" onclick="toggleSelectAll()">전체 선택</button>
+      <span class="sel-count" id="selCount">0개 선택</span>
+      <button class="del-btn" id="delBtn" onclick="requestDelete()" disabled>삭제</button>
     </div>
 
     <div class="group-filter">
-      <div class="gf-btn active" onclick="filterGroup('전체',this)">전체</div>
-      <div class="gf-btn" onclick="filterGroup('곽유민조',this)">곽유민조</div>
-      <div class="gf-btn" onclick="filterGroup('김유민조',this)">김유민조</div>
-      <div class="gf-btn" onclick="filterGroup('김정주조',this)">김정주조</div>
+      <div class="gf-btn active" onclick="filterGroup('전체',    this)">전체</div>
+      <div class="gf-btn"        onclick="filterGroup('곽유민조', this)">곽유민조</div>
+      <div class="gf-btn"        onclick="filterGroup('김유민조', this)">김유민조</div>
+      <div class="gf-btn"        onclick="filterGroup('김정주조', this)">김정주조</div>
     </div>
 
     <div id="prayerList">
@@ -269,261 +270,385 @@ async function confirmDelete(){
 </div>
 
 <script>
-// ── Config ───────────────────────────────────────────
+// ═══════════════════════════════════════════════
+// ① 설정값 — 여기만 바꾸면 됩니다
+// ═══════════════════════════════════════════════
 const SHEET_ID  = '1aaNhTPo1NYcLVY_-sgSmvNXzjvkvniTMwkk5WvHjuQk';
 const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyv8yuaA5wSN2rVfUOiaElM6IV1B-IHbqFsBaualdqWWzzmw8jLJRjP6CZXoDb2eyH9/exec';
-const GVIZ_URL  = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json';
-const LEADER_PW = '0691'; // ← 원하는 비밀번호로 바꾸세요
+const LEADER_PW = '0691'; // ← 비밀번호 여기서 변경
 
-// ── State ────────────────────────────────────────────
-let privacy = 'public', selectedGroup = '', isLeader = false, activeFilter = '전체';
-let allRows = [];        // 시트에서 받은 전체 데이터 (rowIndex 포함)
-let visibleRows = [];    // 현재 화면에 보이는 행
-let selectedIndexes = new Set(); // 선택된 rowIndex들
+const GVIZ = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:json';
 
-// ── Week label ───────────────────────────────────────
-(function(){
-  const now = new Date(), w = Math.ceil(now.getDate()/7);
-  document.getElementById('weekPill').textContent = now.getFullYear()+'년 '+(now.getMonth()+1)+'월 '+w+'주차';
+// ═══════════════════════════════════════════════
+// ② 상태값
+// ═══════════════════════════════════════════════
+let privacy      = 'public';
+let selGroup     = '';
+let isLeader     = false;
+let activeFilter = '전체';
+let allRows      = [];   // 시트 전체 데이터
+let visible      = [];   // 현재 화면에 보이는 데이터
+let checked      = new Set(); // 선택된 rowIndex
+
+// ═══════════════════════════════════════════════
+// ③ 초기화 — 페이지 로드 시 실행
+// ═══════════════════════════════════════════════
+
+// 주차 표시
+(function() {
+  const d = new Date();
+  const w = Math.ceil(d.getDate() / 7);
+  document.getElementById('weekPill').textContent =
+    d.getFullYear() + '년 ' + (d.getMonth() + 1) + '월 ' + w + '주차';
 })();
 
-// ── 마감 배너 ────────────────────────────────────────
-(function(){
-  const now = new Date(), day = now.getDay(), bar = document.getElementById('deadlineBar');
-  if ((day===2 && now.getHours()>=18)||(day>=3&&day<=6)) return;
-  bar.style.display='flex';
-  function tick(){
-    const n=new Date(), next=new Date(n), d=(2-n.getDay()+7)%7||7;
-    next.setDate(n.getDate()+d); next.setHours(18,0,0,0);
-    const diff=next-n; if(diff<=0){bar.style.display='none';return;}
-    document.getElementById('countdown').textContent=Math.floor(diff/3600000)+'시간 '+Math.floor((diff%3600000)/60000)+'분';
+// 마감 카운트다운 (일~화 18시 전에만 표시)
+(function() {
+  const now = new Date();
+  const day = now.getDay(); // 0=일 1=월 2=화 3=수 ...
+  const bar = document.getElementById('deadlineBar');
+
+  // 화요일 18시 이후 OR 수~토 → 숨김
+  if ((day === 2 && now.getHours() >= 18) || (day >= 3 && day <= 6)) return;
+
+  bar.style.display = 'flex';
+
+  function tick() {
+    const n    = new Date();
+    const next = new Date(n);
+    const d    = (2 - n.getDay() + 7) % 7 || 7; // 다음 화요일까지 남은 일수
+    next.setDate(n.getDate() + d);
+    next.setHours(18, 0, 0, 0);
+    const diff = next - n;
+    if (diff <= 0) { bar.style.display = 'none'; return; }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    document.getElementById('countdown').textContent = h + '시간 ' + m + '분';
   }
-  tick(); setInterval(tick,60000);
+  tick();
+  setInterval(tick, 60000);
 })();
 
-// ── Tabs ─────────────────────────────────────────────
-function switchTab(tab,el){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active')); el.classList.add('active');
-  document.getElementById('writeTab').style.display=tab==='write'?'block':'none';
-  document.getElementById('listTab').style.display=tab==='list'?'block':'none';
-  if(tab==='list') fetchAndRender();
+// ═══════════════════════════════════════════════
+// ④ 탭 전환
+// ═══════════════════════════════════════════════
+function switchTab(tab, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('writeTab').style.display = tab === 'write' ? 'block' : 'none';
+  document.getElementById('listTab').style.display  = tab === 'list'  ? 'block' : 'none';
+  if (tab === 'list') fetchAndRender();
 }
 
-function selectGroup(val,el){ selectedGroup=val; document.querySelectorAll('#groupChips .chip').forEach(c=>c.classList.remove('active')); el.classList.add('active'); }
-function setPrivacy(val){ privacy=val; document.getElementById('pubBtn').classList.toggle('active',val==='public'); document.getElementById('priBtn').classList.toggle('active',val==='private'); }
-
-// ── Submit ───────────────────────────────────────────
-async function submitPrayer(){
-  if(!selectedGroup){ document.querySelectorAll('#groupChips .chip').forEach(c=>{c.style.borderColor='#E24B4A';setTimeout(()=>c.style.borderColor='',1200)}); return; }
-  const text=document.getElementById('prayerInput').value.trim();
-  if(!text){ const ta=document.getElementById('prayerInput'); ta.style.borderColor='#E24B4A'; ta.focus(); setTimeout(()=>ta.style.borderColor='',1200); return; }
-  const name=document.getElementById('nameInput').value.trim()||'익명';
-  const cats=[...document.querySelectorAll('.cat.active')].map(c=>c.textContent);
-  const btn=document.getElementById('submitBtn'); btn.textContent='제출 중...'; btn.disabled=true;
-  try{
-    await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name,prayer:text,category:cats.join(', '),privacy,group:selectedGroup})});
-  }catch(e){}
-  btn.textContent='기도제목 제출하기'; btn.disabled=false;
-  document.getElementById('formArea').style.display='none';
-  document.getElementById('successMsg').style.display='block';
-}
-
-function resetForm(){
-  document.getElementById('prayerInput').value=''; document.getElementById('nameInput').value='';
-  document.querySelectorAll('.cat').forEach(c=>c.classList.remove('active'));
-  document.querySelectorAll('#groupChips .chip').forEach(c=>c.classList.remove('active'));
-  selectedGroup=''; setPrivacy('public');
-  document.getElementById('formArea').style.display='block';
-  document.getElementById('successMsg').style.display='none';
-}
-
-// ── Leader ───────────────────────────────────────────
-function toggleLeader(){
-  if(isLeader){
-    isLeader=false;
-    selectedIndexes.clear();
-    document.getElementById('leaderBtn').classList.remove('on');
-    document.getElementById('leaderBtn').textContent='🔑 리더 보기';
-    document.getElementById('deleteToolbar').classList.remove('show');
-    renderList();
-  } else {
-    document.getElementById('leaderModal').classList.add('open');
-    setTimeout(()=>document.getElementById('pwInput').focus(),100);
-  }
-}
-function closeModal(id){ document.getElementById(id).classList.remove('open'); if(id==='leaderModal'){document.getElementById('pwInput').value=''; document.getElementById('pwErr').style.display='none';} }
-function confirmLeader(){
-  if(document.getElementById('pwInput').value===LEADER_PW){
-    isLeader=true;
-    document.getElementById('leaderBtn').classList.add('on');
-    document.getElementById('leaderBtn').textContent='✅ 리더 모드';
-    document.getElementById('deleteToolbar').classList.add('show');
-    closeModal('leaderModal'); renderList();
-  } else { document.getElementById('pwErr').style.display='block'; }
-}
-
-function filterGroup(val,el){ activeFilter=val; document.querySelectorAll('.gf-btn').forEach(b=>b.classList.remove('active')); el.classList.add('active'); selectedIndexes.clear(); renderList(); }
-
-// ── 전체 선택 토글 ────────────────────────────────────
-function toggleSelectAll(){
-  const btn=document.getElementById('selectAllBtn');
-  const allSelected = selectedIndexes.size === visibleRows.length && visibleRows.length > 0;
-  if(allSelected){
-    selectedIndexes.clear();
-    btn.classList.remove('active');
-    btn.textContent='전체 선택';
-  } else {
-    visibleRows.forEach(r => selectedIndexes.add(r.rowIndex));
-    btn.classList.add('active');
-    btn.textContent='전체 해제';
-  }
-  updateSelectionUI();
-}
-
-// ── 개별 체크박스 토글 ────────────────────────────────
-function toggleCheck(rowIndex){
-  if(selectedIndexes.has(rowIndex)) selectedIndexes.delete(rowIndex);
-  else selectedIndexes.add(rowIndex);
-  updateSelectionUI();
-}
-
-function updateSelectionUI(){
-  const count=selectedIndexes.size;
-  document.getElementById('selectedCount').textContent=count+'개 선택';
-  document.getElementById('deleteBtn').disabled=count===0;
-  // 전체선택 버튼 상태
-  const allSelected = count === visibleRows.length && visibleRows.length > 0;
-  const selAllBtn=document.getElementById('selectAllBtn');
-  selAllBtn.classList.toggle('active', allSelected);
-  selAllBtn.textContent=allSelected?'전체 해제':'전체 선택';
-  // 카드 selected 표시
-  document.querySelectorAll('.prayer-item').forEach(el=>{
-    const idx=parseInt(el.dataset.rowIndex);
-    el.classList.toggle('selected', selectedIndexes.has(idx));
-    const cb=el.querySelector('.item-checkbox');
-    if(cb) cb.checked=selectedIndexes.has(idx);
+// ═══════════════════════════════════════════════
+// ⑤ 쓰기 탭 관련
+// ═══════════════════════════════════════════════
+function selectGroup(val, el) {
+  selGroup = val;
+  document.querySelectorAll('#groupChips .chip').forEach(c => {
+    c.classList.remove('active', 'error');
   });
+  el.classList.add('active');
 }
 
-// ── 삭제 요청 ─────────────────────────────────────────
-function requestDelete(){
-  if(selectedIndexes.size===0) return;
-  const msg = selectedIndexes.size===visibleRows.length
-    ? '전체 기도제목을 삭제할까요?<br>삭제하면 되돌릴 수 없어요.'
-    : selectedIndexes.size+'개의 기도제목을 삭제할까요?<br>삭제하면 되돌릴 수 없어요.';
-  document.getElementById('deleteModalMsg').innerHTML=msg;
-  document.getElementById('deleteModal').classList.add('open');
+function setPrivacy(val) {
+  privacy = val;
+  document.getElementById('pubBtn').classList.toggle('active', val === 'public');
+  document.getElementById('priBtn').classList.toggle('active', val === 'private');
 }
 
-async function confirmDelete(){
-  closeModal('deleteModal');
-  const indexes=[...selectedIndexes];
-  const deleteBtn=document.getElementById('deleteBtn');
-  deleteBtn.textContent='삭제 중...'; deleteBtn.disabled=true;
-
-  try{
-    await fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({action:'delete', rowIndexes: indexes})});
-  }catch(e){}
-
-  // 로컬에서 즉시 제거 후 재렌더
-  allRows=allRows.filter(r=>!indexes.includes(r.rowIndex));
-  selectedIndexes.clear();
-  deleteBtn.textContent='삭제'; deleteBtn.disabled=true;
-  document.getElementById('selectedCount').textContent='0개 선택';
-  document.getElementById('selectAllBtn').classList.remove('active');
-  document.getElementById('selectAllBtn').textContent='전체 선택';
-
-  // 1.5초 후 시트에서 다시 불러오기 (삭제 반영 확인)
-  setTimeout(fetchAndRender, 1500);
-}
-
-// ── Fetch — Google Sheets gviz API ────────────────────
-function fetchAndRender(){
-  document.getElementById('listCount').textContent='불러오는 중...';
-  document.getElementById('prayerList').innerHTML='<div class="empty"><span>⏳</span>불러오는 중...</div>';
-  selectedIndexes.clear();
-
-  const old=document.getElementById('__gviz'); if(old) old.remove();
-  const timer=setTimeout(()=>{
-    document.getElementById('prayerList').innerHTML='<div class="empty"><span>⚠️</span>불러오기 실패<br>구글 시트 공유 설정을 확인해주세요<br><small style="font-size:11px">(링크가 있는 모든 사용자 → 뷰어)</small></div>';
-    document.getElementById('listCount').textContent='오류';
-  },8000);
-
-  window.google=window.google||{};
-  window.google.visualization=window.google.visualization||{};
-  window.google.visualization.Query=window.google.visualization.Query||{};
-  window.google.visualization.Query.setResponse=function(res){
-    clearTimeout(timer);
-    try{
-      const table=res.table, rows=table.rows||[];
-      // rowIndex = 시트의 실제 행 번호 (헤더=1, 데이터 시작=2)
-      allRows=rows.map((r,i)=>{
-        const c=r.c||[];
-        return {
-          rowIndex: i+2,  // 시트 행 번호 (삭제 시 사용)
-          date:     c[0]&&c[0].v?String(c[0].v):'',
-          name:     c[1]&&c[1].v?String(c[1].v):'',
-          prayer:   c[2]&&c[2].v?String(c[2].v):'',
-          category: c[3]&&c[3].v?String(c[3].v):'',
-          privacy:  c[4]&&c[4].v?String(c[4].v):'',
-          group:    c[5]&&c[5].v?String(c[5].v):'',
-        };
-      }).filter(r=>r.prayer);
-      renderList();
-    }catch(err){
-      document.getElementById('prayerList').innerHTML='<div class="empty"><span>⚠️</span>데이터 파싱 오류</div>';
-    }
-  };
-
-  const s=document.createElement('script');
-  s.id='__gviz';
-  s.src=GVIZ_URL+'&t='+Date.now();
-  document.head.appendChild(s);
-}
-
-// ── Render ───────────────────────────────────────────
-function renderList(){
-  let rows=allRows;
-  if(!isLeader) rows=rows.filter(r=>{ const p=(r.privacy||'').trim(); return p==='public'||p==='모임에서 공개'||p===''; });
-  if(activeFilter!=='전체') rows=rows.filter(r=>r.group===activeFilter);
-  visibleRows=[...rows].reverse();
-
-  document.getElementById('listCount').textContent=visibleRows.length+'개의 기도제목';
-  const container=document.getElementById('prayerList');
-
-  if(visibleRows.length===0){
-    container.innerHTML='<div class="empty"><span>🕊️</span>아직 기도제목이 없어요<br>첫 번째로 나눠보세요!</div>';
+async function submitPrayer() {
+  // 유효성 검사
+  if (!selGroup) {
+    document.querySelectorAll('#groupChips .chip').forEach(c => {
+      c.classList.add('error');
+      setTimeout(() => c.classList.remove('error'), 1200);
+    });
+    return;
+  }
+  const text = document.getElementById('prayerInput').value.trim();
+  if (!text) {
+    const ta = document.getElementById('prayerInput');
+    ta.style.borderColor = 'var(--red)';
+    ta.focus();
+    setTimeout(() => ta.style.borderColor = '', 1200);
     return;
   }
 
-  container.innerHTML=visibleRows.map((p,i)=>{
-    const initials=(!p.name||p.name==='익명')?'?':p.name.slice(0,1);
-    const isPriv=(p.privacy||'').trim()==='private'||(p.privacy||'').trim()==='리더만 보기';
-    const isSelected=selectedIndexes.has(p.rowIndex);
-    const groupB=p.group?'<span class="badge badge-group">'+p.group+'</span>':'';
-    const catB=p.category?'<span class="badge badge-cat">'+p.category.split(',')[0].trim()+'</span>':'';
-    const privB=isPriv?'<span class="badge badge-priv">🔒 비공개</span>':'';
-    const dateS=p.date?'<span class="item-date">'+String(p.date).slice(0,10)+'</span>':'';
-    return '<div class="prayer-item'+(isSelected?' selected':'')+'" data-row-index="'+p.rowIndex+'" style="animation-delay:'+(i*0.04)+'s">'+
-      '<div class="item-row">'+
-        '<input type="checkbox" class="item-checkbox'+(isLeader?' show':'')+'" '+(isSelected?'checked':'')+
-          ' onchange="toggleCheck('+p.rowIndex+')" />'+
-        '<div class="item-body">'+
-          '<div class="item-top"><div class="item-left">'+
-          '<div class="avatar'+(isPriv?' priv':'')+'">'+initials+'</div>'+
-          '<span class="item-name">'+(p.name||'익명')+'</span>'+groupB+catB+privB+
-          '</div>'+dateS+'</div>'+
-          '<p class="item-text">'+String(p.prayer||'').replace(/</g,'&lt;')+'</p>'+
-        '</div>'+
-      '</div>'+
-    '</div>';
-  }).join('');
+  const name = document.getElementById('nameInput').value.trim() || '익명';
+  const cats = [...document.querySelectorAll('.cat.active')].map(c => c.textContent);
+  const btn  = document.getElementById('submitBtn');
+  btn.textContent = '제출 중...';
+  btn.disabled    = true;
 
-  // 선택 수 업데이트
-  document.getElementById('selectedCount').textContent=selectedIndexes.size+'개 선택';
-  document.getElementById('deleteBtn').disabled=selectedIndexes.size===0;
+  try {
+    // no-cors: 응답을 못 읽지만 저장은 됨
+    await fetch(SHEET_URL, {
+      method:  'POST',
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ name, prayer: text, category: cats.join(', '), privacy, group: selGroup })
+    });
+  } catch (e) { /* 무시 */ }
+
+  btn.textContent = '기도제목 제출하기';
+  btn.disabled    = false;
+  document.getElementById('formArea').style.display  = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+
+function resetForm() {
+  document.getElementById('prayerInput').value = '';
+  document.getElementById('nameInput').value   = '';
+  document.querySelectorAll('.cat').forEach(c  => c.classList.remove('active'));
+  document.querySelectorAll('#groupChips .chip').forEach(c => c.classList.remove('active', 'error'));
+  selGroup = '';
+  setPrivacy('public');
+  document.getElementById('formArea').style.display   = 'block';
+  document.getElementById('successMsg').style.display = 'none';
+}
+
+// ═══════════════════════════════════════════════
+// ⑥ 리더 모달
+// ═══════════════════════════════════════════════
+function toggleLeader() {
+  if (isLeader) {
+    // 리더 해제
+    isLeader = false;
+    checked.clear();
+    document.getElementById('leaderBtn').classList.remove('on');
+    document.getElementById('leaderBtn').textContent = '🔑 리더 보기';
+    document.getElementById('delToolbar').classList.remove('show');
+    renderList();
+  } else {
+    document.getElementById('leaderModal').classList.add('open');
+    setTimeout(() => document.getElementById('pwInput').focus(), 100);
+  }
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  if (id === 'leaderModal') {
+    document.getElementById('pwInput').value  = '';
+    document.getElementById('pwErr').style.display = 'none';
+  }
+}
+
+function confirmLeader() {
+  if (document.getElementById('pwInput').value === LEADER_PW) {
+    isLeader = true;
+    document.getElementById('leaderBtn').classList.add('on');
+    document.getElementById('leaderBtn').textContent = '✅ 리더 모드';
+    document.getElementById('delToolbar').classList.add('show');
+    closeModal('leaderModal');
+    renderList();
+  } else {
+    document.getElementById('pwErr').style.display = 'block';
+  }
+}
+
+// ═══════════════════════════════════════════════
+// ⑦ 조 필터
+// ═══════════════════════════════════════════════
+function filterGroup(val, el) {
+  activeFilter = val;
+  document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  checked.clear();
+  renderList();
+}
+
+// ═══════════════════════════════════════════════
+// ⑧ 데이터 불러오기 — gviz JSONP (CORS 완전 우회)
+// ═══════════════════════════════════════════════
+function fetchAndRender() {
+  document.getElementById('listCount').textContent = '불러오는 중...';
+  document.getElementById('prayerList').innerHTML  = '<div class="empty"><span>⏳</span>불러오는 중...</div>';
+  checked.clear();
+  updateDelUI();
+
+  // 이전 script 태그 제거
+  const old = document.getElementById('__gviz');
+  if (old) old.remove();
+
+  // 10초 타임아웃
+  const timer = setTimeout(() => {
+    document.getElementById('prayerList').innerHTML =
+      '<div class="empty"><span>⚠️</span>불러오기 실패<br>' +
+      '<small>구글 시트 → 공유 → "링크가 있는 모든 사용자" → 뷰어 설정 확인</small></div>';
+    document.getElementById('listCount').textContent = '오류';
+  }, 10000);
+
+  // 응답 콜백 함수 등록
+  window.google = window.google || {};
+  window.google.visualization = window.google.visualization || {};
+  window.google.visualization.Query = window.google.visualization.Query || {};
+  window.google.visualization.Query.setResponse = function(res) {
+    clearTimeout(timer);
+    try {
+      const rows = (res.table && res.table.rows) ? res.table.rows : [];
+      allRows = rows.map((r, i) => {
+        const c = r.c || [];
+        return {
+          rowIndex: i + 2, // 헤더가 1행 → 데이터 시작은 2행
+          date:     c[0] && c[0].v ? String(c[0].v) : '',
+          name:     c[1] && c[1].v ? String(c[1].v) : '',
+          prayer:   c[2] && c[2].v ? String(c[2].v) : '',
+          category: c[3] && c[3].v ? String(c[3].v) : '',
+          privacy:  c[4] && c[4].v ? String(c[4].v) : '',
+          group:    c[5] && c[5].v ? String(c[5].v) : ''
+        };
+      }).filter(r => r.prayer.trim() !== ''); // 빈 행 제거
+      renderList();
+    } catch (err) {
+      document.getElementById('prayerList').innerHTML = '<div class="empty"><span>⚠️</span>파싱 오류</div>';
+    }
+  };
+
+  // script 태그로 gviz 요청
+  const s   = document.createElement('script');
+  s.id      = '__gviz';
+  s.src     = GVIZ + '&t=' + Date.now(); // 캐시 방지
+  document.head.appendChild(s);
+}
+
+// ═══════════════════════════════════════════════
+// ⑨ 화면 렌더링
+// ═══════════════════════════════════════════════
+function renderList() {
+  let rows = allRows;
+
+  // 리더가 아니면 공개 기도제목만
+  if (!isLeader) {
+    rows = rows.filter(r => {
+      const p = (r.privacy || '').trim();
+      return p === 'public' || p === '모임에서 공개' || p === '';
+    });
+  }
+
+  // 조 필터
+  if (activeFilter !== '전체') rows = rows.filter(r => r.group === activeFilter);
+
+  // 최신순 (뒤집기)
+  visible = [...rows].reverse();
+
+  document.getElementById('listCount').textContent = visible.length + '개의 기도제목';
+  const container = document.getElementById('prayerList');
+
+  if (visible.length === 0) {
+    container.innerHTML = '<div class="empty"><span>🕊️</span>아직 기도제목이 없어요<br>첫 번째로 나눠보세요!</div>';
+    return;
+  }
+
+  container.innerHTML = visible.map((p, i) => {
+    const initials   = (!p.name || p.name === '익명') ? '?' : p.name.slice(0, 1);
+    const isPriv     = (p.privacy || '').trim() === 'private' || (p.privacy || '').trim() === '리더만 보기';
+    const isSelected = checked.has(p.rowIndex);
+    const groupB     = p.group    ? '<span class="badge badge-group">' + p.group + '</span>' : '';
+    const catB       = p.category ? '<span class="badge badge-cat">'   + p.category.split(',')[0].trim() + '</span>' : '';
+    const privB      = isPriv     ? '<span class="badge badge-priv">🔒 비공개</span>' : '';
+    const dateS      = p.date     ? '<span class="item-date">'         + String(p.date).slice(0, 10) + '</span>' : '';
+    const prayerText = String(p.prayer || '').replace(/</g, '&lt;');
+
+    return (
+      '<div class="prayer-item' + (isSelected ? ' selected' : '') + '" data-idx="' + p.rowIndex + '" style="animation-delay:' + (i * 0.04) + 's">' +
+        '<div class="item-row">' +
+          '<input type="checkbox" class="item-cb' + (isLeader ? ' show' : '') + '"' +
+            (isSelected ? ' checked' : '') + ' onchange="toggleCheck(' + p.rowIndex + ')" />' +
+          '<div class="item-body">' +
+            '<div class="item-top">' +
+              '<div class="item-left">' +
+                '<div class="avatar' + (isPriv ? ' priv' : '') + '">' + initials + '</div>' +
+                '<span class="item-name">' + (p.name || '익명') + '</span>' +
+                groupB + catB + privB +
+              '</div>' +
+              dateS +
+            '</div>' +
+            '<p class="item-text">' + prayerText + '</p>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════
+// ⑩ 삭제 기능
+// ═══════════════════════════════════════════════
+function toggleCheck(rowIndex) {
+  if (checked.has(rowIndex)) checked.delete(rowIndex);
+  else checked.add(rowIndex);
+  updateDelUI();
+}
+
+function toggleSelectAll() {
+  const allSelected = checked.size === visible.length && visible.length > 0;
+  if (allSelected) {
+    checked.clear();
+  } else {
+    visible.forEach(r => checked.add(r.rowIndex));
+  }
+  updateDelUI();
+  renderList(); // 체크박스 상태 반영
+}
+
+function updateDelUI() {
+  const n = checked.size;
+  document.getElementById('selCount').textContent = n + '개 선택';
+  document.getElementById('delBtn').disabled = n === 0;
+  const allSelected = n === visible.length && visible.length > 0;
+  const btn = document.getElementById('selAllBtn');
+  btn.classList.toggle('on', allSelected);
+  btn.textContent = allSelected ? '전체 해제' : '전체 선택';
+  // 카드 selected 표시
+  document.querySelectorAll('.prayer-item').forEach(el => {
+    const idx = parseInt(el.dataset.idx);
+    el.classList.toggle('selected', checked.has(idx));
+    const cb = el.querySelector('.item-cb');
+    if (cb) cb.checked = checked.has(idx);
+  });
+}
+
+function requestDelete() {
+  if (checked.size === 0) return;
+  const isAll = checked.size === visible.length;
+  document.getElementById('deleteMsg').innerHTML = isAll
+    ? '전체 기도제목을 삭제할까요?<br>삭제하면 되돌릴 수 없어요.'
+    : checked.size + '개의 기도제목을 삭제할까요?<br>삭제하면 되돌릴 수 없어요.';
+  document.getElementById('deleteModal').classList.add('open');
+}
+
+function confirmDelete() {
+  closeModal('deleteModal');
+  const indexes = [...checked];
+  const btn = document.getElementById('delBtn');
+  btn.textContent = '삭제 중...';
+  btn.disabled    = true;
+
+  // 이전 delete script 제거
+  const old = document.getElementById('__del');
+  if (old) old.remove();
+
+  // 응답 콜백
+  window.__delCb = function() {
+    // 로컬에서 즉시 제거
+    allRows = allRows.filter(r => !indexes.includes(r.rowIndex));
+    checked.clear();
+    btn.textContent = '삭제';
+    btn.disabled    = true;
+    document.getElementById('selCount').textContent = '0개 선택';
+    document.getElementById('selAllBtn').classList.remove('on');
+    document.getElementById('selAllBtn').textContent = '전체 선택';
+    renderList();
+    // 1.5초 후 시트에서 재확인
+    setTimeout(fetchAndRender, 1500);
+  };
+
+  // GET 방식으로 삭제 요청 (no-cors 우회)
+  const s  = document.createElement('script');
+  s.id     = '__del';
+  s.src    = SHEET_URL + '?action=delete&rows=' + indexes.join(',') + '&callback=__delCb&t=' + Date.now();
+  document.head.appendChild(s);
 }
 </script>
 </body>
