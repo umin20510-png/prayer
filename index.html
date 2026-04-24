@@ -153,17 +153,28 @@ textarea { height: 96px; resize: none; line-height: 1.6; }
   </div>
 </div>
 
-<!-- Delete confirm modal -->
-<div class="modal-bg" id="deleteModal">
-  <div class="modal">
-    <h3>🗑️ 삭제 확인</h3>
-    <p id="deleteModalMsg">선택한 기도제목을 삭제할까요?<br>삭제하면 되돌릴 수 없어요.</p>
-    <div class="modal-btns">
-      <button class="btn-cancel" onclick="closeModal('deleteModal')">취소</button>
-      <button class="btn-danger" onclick="confirmDelete()">삭제하기</button>
-    </div>
-  </div>
-</div>
+async function confirmDelete(){
+  closeModal('deleteModal');
+  const indexes=[...selectedIndexes];
+  const deleteBtn=document.getElementById('deleteBtn');
+  deleteBtn.textContent='삭제 중...'; deleteBtn.disabled=true;
+
+  // GET 방식으로 삭제 요청 (no-cors 문제 우회)
+  const old=document.getElementById('__del'); if(old) old.remove();
+  window.__deleteCallback = function(res){
+    selectedIndexes.clear();
+    allRows=allRows.filter(r=>!indexes.includes(r.rowIndex));
+    deleteBtn.textContent='삭제'; deleteBtn.disabled=true;
+    document.getElementById('selectedCount').textContent='0개 선택';
+    document.getElementById('selectAllBtn').classList.remove('active');
+    document.getElementById('selectAllBtn').textContent='전체 선택';
+    setTimeout(fetchAndRender, 1500);
+  };
+  const s=document.createElement('script');
+  s.id='__del';
+  s.src=SHEET_URL+'?action=delete&rows='+indexes.join(',')+'&callback=__deleteCallback&t='+Date.now();
+  document.head.appendChild(s);
+}
 
 <div class="container">
   <div class="header">
